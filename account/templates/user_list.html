@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block head %}<title>User List</title>{% endblock %}
+{% block content %}
+<p class="pull-right">
+        Welcome
+        <a href="{% url 'account:profile' %}">{{user}}</a> /
+        <a href="{% url 'account:edit_profile' %}">Edit Profile</a> /
+        <a href="{% url 'account:change_password' %}">Change Password</a>
+    </p>
+<h3 class="text-center">Find Friends</h3><hr>
+<form method="get" action="" class="pull-right">
+
+        <input type="text" name="q" value="{{request.GET.q}}" placeholder="Find Friends" required>
+        <input type="submit" value="Search" class="btn btn-success">
+    </form>
+
+{% for user in r %}
+<div class="row" style="margin-top:50px;">
+
+    <div class="col-md-2">
+    {% if user.userprofile.image %}
+    <img src="{{user.userprofile.image.url}}" height="130px" width="150px"/>
+        {% endif %}</div>
+    <div class="col-md-4">
+    <p>{{user.first_name}} {{user.last_name}}</p>
+    <p>{{user.userprofile.city}}</p>
+        <a href="{% url 'account:user_detail' user.id %}">Add Friends</a>
+</div>
+</div>
+{% endfor %}
+{% endblock %}
