@@ -1,5 +1,0 @@
-<form action="{% url 'music:album-delete' album.id %}" method="post">
-    {% csrf_token %}
-    <p>Do you really want to delete this Album</p>
-    <input type="submit" value="Confirm">
-</form>

@@ -12,14 +12,13 @@
 <div class="container">
 <h2>My Network</h2>
 <ol class="breadcrumb">
-    <li><a href="{% url 'account:home' %}">Home</a></li>
-    <li><a href="{% url 'music:home' %}">Music</a></li>
+    <li><a href="#">Home</a></li>
     {% if not request.user.is_authenticated %}
     <li class="pull-right"><a href="{% url 'account:register' %}">Register</a></li>
     <li class = 'pull-right'><a href="{% url 'account:login' %}">Login</a></li>
 
     {% else %}
-    <li><a href="{% url 'account:userlist' %}">Find Friend</a></li>
+    <li><a href="{% url 'account:user_list' %}">Find Friend</a></li>
     <li class="pull-right"><a href="{% url 'account:logout' %}">Logout</a></li> /
     <li class="pull-right"><a href="{% url 'account:profile' %}">My Profile</a></li>
     {% endif %}

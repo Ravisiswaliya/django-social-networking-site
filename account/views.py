@@ -6,21 +6,18 @@ from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView,DetailView,DeleteView
+from django.views.generic import TemplateView
 # Create your views here.
 
-def ahome(request):
-    context={}
-    template = 'ahome.html'
-    return render(request, template, context)
+
 
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST or None)
         if form.is_valid():
             form.save()
-            return redirect('account:userlist')
+            return redirect('account:user_list')
     else:
         form = RegistrationForm()
         args = {'form':form}
@@ -63,7 +60,7 @@ def profile(request):
     return render(request,template,context)
 
 
-
+@login_required
 def edit_profile(request):
     if request.method == "POST":
         form = UserChangeForm(request.POST, instance=request.user)
