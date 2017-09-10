@@ -6,13 +6,9 @@ from django.contrib.auth.forms import UserChangeForm,PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-<<<<<<< HEAD
 from django.views.generic import ListView,DetailView,DeleteView
 from django.views.generic import TemplateView
 # Create your views here.
-
-
-=======
 from django.core.urlresolvers import reverse_lazy
 from django.views.generic import ListView,DetailView,DeleteView
 # Create your views here.
@@ -21,18 +17,14 @@ def ahome(request):
     context={}
     template = 'ahome.html'
     return render(request, template, context)
->>>>>>> ea017e3a85dca5ebd68d297d9036b576b24d311e
 
 def register(request):
     if request.method == 'POST':
         form = RegistrationForm(request.POST or None)
         if form.is_valid():
             form.save()
-<<<<<<< HEAD
             return redirect('account:user_list')
-=======
-            return redirect('account:userlist')
->>>>>>> ea017e3a85dca5ebd68d297d9036b576b24d311e
+
     else:
         form = RegistrationForm()
         args = {'form':form}
@@ -75,11 +67,8 @@ def profile(request):
     return render(request,template,context)
 
 
-<<<<<<< HEAD
-@login_required
-=======
 
->>>>>>> ea017e3a85dca5ebd68d297d9036b576b24d311e
+@login_required
 def edit_profile(request):
     if request.method == "POST":
         form = UserChangeForm(request.POST, instance=request.user)

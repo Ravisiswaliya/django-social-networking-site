@@ -37,15 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD
     'crispy_forms',
     'account',
     'home',
-=======
-    'music',
-    'crispy_forms',
-    'account',
->>>>>>> ea017e3a85dca5ebd68d297d9036b576b24d311e
     'rest_framework',
 ]
 
@@ -133,3 +127,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 LOGIN_REDIRECT_URL = '/account/profile'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap3'

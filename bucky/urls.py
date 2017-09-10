@@ -19,13 +19,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-<<<<<<< HEAD
     url(r'^account/', include('account.urls')),
     url(r'^home/',include('home.urls')),
-=======
-    url(r'^music/', include('music.urls')),
     url(r'^account/', include('account.urls')),
->>>>>>> ea017e3a85dca5ebd68d297d9036b576b24d311e
 ]
 
 if settings.DEBUG:
